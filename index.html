@@ -1,33 +1,219 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Codex-Coding-Academy | Official Verification System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-        }
-        h1 {
-            color: #222;
-            font-size: 36px;
-        }
-        p {
-            font-size: 18px;
-        }
-        a.button {
-            padding: 12px 20px;
-            background: black;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 6px;
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Codex-Coding-Academy — Ultra Premium</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1724; --card:#0b1220; --accent:#07f;
+    --muted:#94a3b8; --glass:rgba(255,255,255,0.03);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    background:linear-gradient(180deg,#071029 0%, #071b2b 70%);
+    color:#e6eef8; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:36px auto;padding:28px}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,#05f,#60f);display:flex;align-items:center;justify-content:center;font-weight:800}
+  .brand h1{margin:0;font-size:20px;letter-spacing:0.2px}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px}
+  header.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px}
+  .panel{background:rgba(255,255,255,0.03);padding:20px;border-radius:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+  .hero-left h2{font-size:34px;margin:0 0 10px}
+  .hero-left p{color:var(--muted);margin:0 0 18px}
+  .cta{display:flex;gap:12px;margin-top:12px}
+  .btn{background:linear-gradient(90deg,#06f,#4f46e5);color:white;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600}
+  .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+  .feature{background:var(--glass);padding:14px;border-radius:10px;color:var(--muted);font-size:14px}
+  .right-panel{display:flex;flex-direction:column;gap:14px}
+  .verify-box{padding:18px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+  .verify-box h3{margin:0 0 12px}
+  input[type="text"],select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+  .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+  .card-course{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px}
+  footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center;padding:18px 0}
+  /* Admin modal */
+  .admin{margin-top:20px}
+  .admin .row{display:flex;gap:8px}
+  .admin textarea{width:100%;min-height:100px;padding:10px;border-radius:8px;background:#061226;border:1px solid rgba(255,255,255,0.03);color:inherit}
+  /* responsive */
+  @media (max-width:980px){header.hero{grid-template-columns:1fr} .courses{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:640px){.courses{grid-template-columns:1fr} .features{grid-template-columns:1fr} .brand h1{font-size:16px}}
+  /* small helper */
+  .muted{color:var(--muted)}
+  .center{text-align:center}
+  .qr-preview{width:120px;height:120px;border-radius:12px;background:white;display:flex;align-items:center;justify-content:center;color:#072a40;font-weight:700}
+</style>
 </head>
 <body>
-    <h1>Codex-Coding-Academy</h1>
-    <p>Official Website & Verification System</p>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">CC</div>
+        <div>
+          <h1>Codex-Coding Academy</h1>
+          <div class="muted">Professional training • Java • Fullstack • Placement-ready</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#courses">Courses</a>
+        <a href="#verify">Verify</a>
+        <a href="#admin">Admin</a>
+      </nav>
+    </div>
 
-    <a class="button" href="CC-JAV-2025-0001.html">Verify Certificate</a>
+    <header class="hero">
+      <div class="hero-left panel">
+        <h2>Become industry-ready. Learn Java, Frontend, Backend, SQL & more — from experts.</h2>
+        <p class="muted">Live interactive online batches for FY students — guest lectures from big tech engineers, 15+ years professors, free extra courses & apti/fundamentals notes.</p>
+        <div class="cta">
+          <a class="btn" href="#courses">Explore Courses</a>
+          <a class="btn ghost" href="#verify">Verify Certificate</a>
+        </div>
+
+        <div class="features" aria-hidden>
+          <div class="feature"><strong>100% Live</strong><div class="muted">Doubt sessions & recording</div></div>
+          <div class="feature"><strong>Industry Exposure</strong><div class="muted">Direct guest lectures</div></div>
+          <div class="feature"><strong>Placement Ready</strong><div class="muted">Resume & interview help</div></div>
+        </div>
+      </div>
+
+      <aside class="right-panel">
+        <div class="verify-box panel">
+          <h3>Quick Certificate Verify</h3>
+          <div class="muted">Enter Certificate ID to open verification page</div>
+          <div style="margin-top:10px">
+            <input id="certIdInput" type="text" placeholder="e.g. CC-JAV-2025-0001" />
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a id="verifyBtn" class="btn">Open Verification</a>
+            <a id="downloadCertBtn" class="btn ghost" href="#" onclick="downloadSample()">Download Sample PDF</a>
+          </div>
+          <div style="margin-top:12px" class="muted">Or scan the QR on the printed certificate to verify online.</div>
+        </div>
+
+        <div class="panel center">
+          <div style="font-size:13px;color:var(--muted)">Certificate Preview</div>
+          <div style="margin-top:10px">
+            <img src="CC-JAV-2025-0001_certificate_with_qr.png" alt="certificate preview" style="width:100%;border-radius:8px;"/>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <section id="courses">
+      <h3 style="margin:0 0 12px">Featured Courses</h3>
+      <div class="courses">
+        <div class="card-course panel">
+          <h4>Java — Core to Advanced</h4>
+          <p class="muted">OOPs, Collections, Multithreading, JDBC, Servlets, Spring Boot.</p>
+          <div style="margin-top:10px"><a class="btn" href="#verify">Enroll</a></div>
+        </div>
+        <div class="card-course panel">
+          <h4>Frontend — Modern</h4>
+          <p class="muted">HTML, CSS, JS, React, V0.dev patterns & component-driven UI.</p>
+        </div>
+        <div class="card-course panel">
+          <h4>Backend & DB</h4>
+          <p class="muted">Node / Spring, REST, SQL, NoSQL (Mongo), Deployment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="verify" style="margin-top:28px">
+      <h3>Certificate Verification</h3>
+      <div class="panel" style="margin-top:12px">
+        <p class="muted">Type certificate ID and click Open — the verification page we deployed will open in a new tab.</p>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <input id="certIdInput2" type="text" placeholder="CC-JAV-2025-0001" />
+          <button class="btn" id="verifyBtn2">Open</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="admin" class="admin">
+      <h3>Admin — Create Certificate (client-side)</h3>
+      <div class="panel">
+        <p class="muted">This lightweight admin lets you create a certificate JSON and preview a QR. For production, set up server-side signing & storage.</p>
+
+        <div style="display:grid;gap:10px;margin-top:10px">
+          <input id="studentName" placeholder="Student name (Datta Karhale)" />
+          <input id="courseName" placeholder="Course name (Java)" value="Java" />
+          <input id="certId" placeholder="Certificate ID (CC-JAV-2025-0001)" value="CC-JAV-2025-0001" />
+          <input id="issueDate" placeholder="Issue date (22-11-2025)" value="22-11-2025" />
+          <div style="display:flex;gap:8px">
+            <button class="btn" onclick="generateCert()">Generate JSON & QR</button>
+            <button class="btn ghost" onclick="downloadJSON()">Download JSON</button>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+            <div class="qr-preview" id="qrArea">QR</div>
+            <div>
+              <div class="muted">Signature preview (auto)</div>
+              <img id="sigPreview" src="/mnt/data/unnamed.jpg" alt="signature" style="height:40px;margin-top:8px;border-radius:4px;background:#fff"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © Codex-Coding Academy · MSME UDYAM: UDYAM-MH-09-0066835 · <span class="muted">Built with ❤️</span>
+    </footer>
+  </div>
+
+<script>
+  // open verification page
+  function openVerification(id){
+    if(!id) return alert('Enter certificate ID');
+    // verify page mapping pattern: filename = ID + ".html"
+    const url = `${location.origin}${location.pathname}${id}.html`;
+    window.open(url, '_blank');
+  }
+  document.getElementById('verifyBtn').addEventListener('click', ()=>{
+    openVerification(document.getElementById('certIdInput').value.trim() || document.getElementById('certIdInput2').value.trim());
+  });
+  document.getElementById('verifyBtn2').addEventListener('click', ()=>{
+    openVerification(document.getElementById('certIdInput2').value.trim());
+  });
+
+  // download sample PDF fallback to the cert pdf you uploaded if present
+  function downloadSample(){
+    // if you uploaded a PDF to repo root with this name, link will work
+    const pdfPath = 'codex-coding-academy _ Udyam Registration Certificate.pdf';
+    // open in new tab (or download)
+    window.open(pdfPath, '_blank');
+  }
+
+  // client-side JSON + QR (uses Google Chart API for QR)
+  function generateCert(){
+    const student = document.getElementById('studentName').value || 'Datta Karhale';
+    const course = document.getElementById('courseName').value || 'Java';
+    const id = document.getElementById('certId').value || `CC-JAV-2025-0001`;
+    const date = document.getElementById('issueDate').value || new Date().toLocaleDateString();
+    const json = { certificate_id: id, student_name: student, course: course, issue_date: date, academy: "Codex-Coding Academy", msme: "UDYAM-MH-09-0066835", status: "VERIFIED" };
+    window.currentCertJSON = json;
+    // show QR
+    const vUrl = `${location.origin}${location.pathname}${id}.html`;
+    const qrUrl = `https://chart.googleapis.com/chart?cht=qr&chs=240x240&chl=${encodeURIComponent(vUrl)}`;
+    document.getElementById('qrArea').innerHTML = '<img src="'+qrUrl+'" style="width:100%;height:100%;border-radius:8px"/>';
+    alert('Certificate JSON created — click Download JSON to save locally. Then upload the JSON + certificate image to your repo /certificates/ folder to serve verification.');
+  }
+
+  function downloadJSON(){
+    if(!window.currentCertJSON){ alert('Generate certificate first'); return; }
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(window.currentCertJSON, null, 2));
+    const a = document.createElement('a'); a.href = dataStr; a.download = (window.currentCertJSON.certificate_id || 'certificate') + '.json'; document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  // prefill admin inputs for convenience
+  document.getElementById('studentName').value = 'Datta Karhale';
+</script>
 </body>
 </html>
