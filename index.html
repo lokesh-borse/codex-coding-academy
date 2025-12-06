@@ -1,219 +1,926 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Codex-Coding-Academy — Ultra Premium</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0f1724; --card:#0b1220; --accent:#07f;
-    --muted:#94a3b8; --glass:rgba(255,255,255,0.03);
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
-    background:linear-gradient(180deg,#071029 0%, #071b2b 70%);
-    color:#e6eef8; -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1180px;margin:36px auto;padding:28px}
-  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
-  .brand{display:flex;gap:12px;align-items:center}
-  .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,#05f,#60f);display:flex;align-items:center;justify-content:center;font-weight:800}
-  .brand h1{margin:0;font-size:20px;letter-spacing:0.2px}
-  nav a{color:var(--muted);text-decoration:none;margin-left:18px}
-  header.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px}
-  .panel{background:rgba(255,255,255,0.03);padding:20px;border-radius:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
-  .hero-left h2{font-size:34px;margin:0 0 10px}
-  .hero-left p{color:var(--muted);margin:0 0 18px}
-  .cta{display:flex;gap:12px;margin-top:12px}
-  .btn{background:linear-gradient(90deg,#06f,#4f46e5);color:white;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600}
-  .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
-  .feature{background:var(--glass);padding:14px;border-radius:10px;color:var(--muted);font-size:14px}
-  .right-panel{display:flex;flex-direction:column;gap:14px}
-  .verify-box{padding:18px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
-  .verify-box h3{margin:0 0 12px}
-  input[type="text"],select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
-  .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
-  .card-course{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px}
-  footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center;padding:18px 0}
-  /* Admin modal */
-  .admin{margin-top:20px}
-  .admin .row{display:flex;gap:8px}
-  .admin textarea{width:100%;min-height:100px;padding:10px;border-radius:8px;background:#061226;border:1px solid rgba(255,255,255,0.03);color:inherit}
-  /* responsive */
-  @media (max-width:980px){header.hero{grid-template-columns:1fr} .courses{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:640px){.courses{grid-template-columns:1fr} .features{grid-template-columns:1fr} .brand h1{font-size:16px}}
-  /* small helper */
-  .muted{color:var(--muted)}
-  .center{text-align:center}
-  .qr-preview{width:120px;height:120px;border-radius:12px;background:white;display:flex;align-items:center;justify-content:center;color:#072a40;font-weight:700}
-</style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo">CC</div>
-        <div>
-          <h1>Codex-Coding Academy</h1>
-          <div class="muted">Professional training • Java • Fullstack • Placement-ready</div>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codex Coding Academy - Professional Coding Courses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1e40af;
+        --secondary: #0891b2;
+        --success: #10b981;
+        --bg-dark: #0f1419;
+        --bg-card: #1a1f2e;
+        --text-primary: #ffffff;
+        --text-secondary: #d1d5db;
+        --text-muted: #9ca3af;
+        --border: rgba(255, 255, 255, 0.1);
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+        color: var(--text-primary);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 3rem;
+      }
+
+      /* Header */
+      header {
+        background: rgba(15, 20, 25, 0.95);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        text-decoration: none;
+      }
+
+      .logo {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 20px;
+        color: white;
+      }
+
+      .logo-text h1 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .logo-text p {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--text-primary);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 5rem 0;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-content {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        background: rgba(37, 99, 235, 0.1);
+        border: 1px solid rgba(37, 99, 235, 0.2);
+        border-radius: 30px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #3b82f6;
+        margin-bottom: 2rem;
+      }
+
+      .hero h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-highlight {
+        color: #3b82f6;
+      }
+
+      .hero p {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+      }
+
+      .cta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      .btn {
+        padding: 0.875rem 1.75rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        transition: all 0.2s;
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .stat-card {
+        padding: 1.5rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+
+      .stat-card:hover {
+        border-color: var(--primary);
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #3b82f6;
+      }
+
+      .stat-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-top: 0.5rem;
+      }
+
+      .verification-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2rem;
+      }
+
+      .verification-card h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--bg-dark);
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 0.9375rem;
+        margin-bottom: 1rem;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      /* Sections */
+      section {
+        padding: 5rem 0;
+      }
+
+      section h2 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      section h3 {
+        text-align: center;
+      }
+
+      .container > p {
+        text-align: center;
+        color: var(--text-secondary);
+        max-width: 650px;
+        margin: 0 auto 3.5rem;
+      }
+
+      /* Features */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .feature-card p {
+        color: var(--text-muted);
+        font-size: 0.9375rem;
+        text-align: center;
+      }
+
+      /* Courses */
+      .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .course-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.2s;
+      }
+
+      .course-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-4px);
+      }
+
+      .course-header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        padding: 2rem;
+        color: white;
+        text-align: center;
+      }
+
+      .course-header h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .course-body {
+        padding: 2rem;
+      }
+
+      .course-features {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+
+      .course-features li {
+        padding: 0.5rem 0;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .course-features li::before {
+        content: "✓";
+        color: var(--success);
+        font-weight: bold;
+      }
+
+      .course-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+      }
+
+      .course-duration {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #3b82f6;
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(180deg, var(--bg-primary) 0%, #0a0e14 100%);
+        border-top: 1px solid var(--border);
+        padding: 4rem 0 0;
+        margin-top: 6rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 4rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-section h4 {
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+        color: var(--text-primary);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .footer-section p {
+        line-height: 1.8;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.2s;
+        font-size: 0.9375rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+        padding-left: 4px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .container {
+          padding: 0 2rem;
+        }
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .hero h2 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 1.5rem;
+        }
+        .nav-links {
+          gap: 1.5rem;
+        }
+        .hero {
+          padding: 3rem 0;
+        }
+        .hero h2 {
+          font-size: 2rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 3rem 0;
+        }
+        section h2 {
+          font-size: 1.75rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cta {
+          flex-direction: column;
+        }
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#home" class="logo-section">
+            <div class="logo">CC</div>
+            <div class="logo-text">
+              <h1>Codex Coding Academy</h1>
+              <p>Professional Coding Education</p>
+            </div>
+          </a>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#verify">Verify</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <a href="#courses">Courses</a>
-        <a href="#verify">Verify</a>
-        <a href="#admin">Admin</a>
-      </nav>
-    </div>
-
-    <header class="hero">
-      <div class="hero-left panel">
-        <h2>Become industry-ready. Learn Java, Frontend, Backend, SQL & more — from experts.</h2>
-        <p class="muted">Live interactive online batches for FY students — guest lectures from big tech engineers, 15+ years professors, free extra courses & apti/fundamentals notes.</p>
-        <div class="cta">
-          <a class="btn" href="#courses">Explore Courses</a>
-          <a class="btn ghost" href="#verify">Verify Certificate</a>
-        </div>
-
-        <div class="features" aria-hidden>
-          <div class="feature"><strong>100% Live</strong><div class="muted">Doubt sessions & recording</div></div>
-          <div class="feature"><strong>Industry Exposure</strong><div class="muted">Direct guest lectures</div></div>
-          <div class="feature"><strong>Placement Ready</strong><div class="muted">Resume & interview help</div></div>
-        </div>
-      </div>
-
-      <aside class="right-panel">
-        <div class="verify-box panel">
-          <h3>Quick Certificate Verify</h3>
-          <div class="muted">Enter Certificate ID to open verification page</div>
-          <div style="margin-top:10px">
-            <input id="certIdInput" type="text" placeholder="e.g. CC-JAV-2025-0001" />
-          </div>
-          <div style="margin-top:12px;display:flex;gap:8px">
-            <a id="verifyBtn" class="btn">Open Verification</a>
-            <a id="downloadCertBtn" class="btn ghost" href="#" onclick="downloadSample()">Download Sample PDF</a>
-          </div>
-          <div style="margin-top:12px" class="muted">Or scan the QR on the printed certificate to verify online.</div>
-        </div>
-
-        <div class="panel center">
-          <div style="font-size:13px;color:var(--muted)">Certificate Preview</div>
-          <div style="margin-top:10px">
-            <img src="CC-JAV-2025-0001_certificate_with_qr.png" alt="certificate preview" style="width:100%;border-radius:8px;"/>
-          </div>
-        </div>
-      </aside>
     </header>
 
-    <section id="courses">
-      <h3 style="margin:0 0 12px">Featured Courses</h3>
-      <div class="courses">
-        <div class="card-course panel">
-          <h4>Java — Core to Advanced</h4>
-          <p class="muted">OOPs, Collections, Multithreading, JDBC, Servlets, Spring Boot.</p>
-          <div style="margin-top:10px"><a class="btn" href="#verify">Enroll</a></div>
-        </div>
-        <div class="card-course panel">
-          <h4>Frontend — Modern</h4>
-          <p class="muted">HTML, CSS, JS, React, V0.dev patterns & component-driven UI.</p>
-        </div>
-        <div class="card-course panel">
-          <h4>Backend & DB</h4>
-          <p class="muted">Node / Spring, REST, SQL, NoSQL (Mongo), Deployment.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="verify" style="margin-top:28px">
-      <h3>Certificate Verification</h3>
-      <div class="panel" style="margin-top:12px">
-        <p class="muted">Type certificate ID and click Open — the verification page we deployed will open in a new tab.</p>
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <input id="certIdInput2" type="text" placeholder="CC-JAV-2025-0001" />
-          <button class="btn" id="verifyBtn2">Open</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="admin" class="admin">
-      <h3>Admin — Create Certificate (client-side)</h3>
-      <div class="panel">
-        <p class="muted">This lightweight admin lets you create a certificate JSON and preview a QR. For production, set up server-side signing & storage.</p>
-
-        <div style="display:grid;gap:10px;margin-top:10px">
-          <input id="studentName" placeholder="Student name (Datta Karhale)" />
-          <input id="courseName" placeholder="Course name (Java)" value="Java" />
-          <input id="certId" placeholder="Certificate ID (CC-JAV-2025-0001)" value="CC-JAV-2025-0001" />
-          <input id="issueDate" placeholder="Issue date (22-11-2025)" value="22-11-2025" />
-          <div style="display:flex;gap:8px">
-            <button class="btn" onclick="generateCert()">Generate JSON & QR</button>
-            <button class="btn ghost" onclick="downloadJSON()">Download JSON</button>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div>
+            <div class="hero-badge">
+              MSME Certified Institute • 500+ Students Trained
+            </div>
+            <h2>
+              Learn Professional Coding<br /><span class="hero-highlight"
+                >Build Your Career</span
+              >
+            </h2>
+            <p>
+              Master Java, Full-Stack Development, and modern web technologies
+              through structured courses. Expert instructors with 15+ years of
+              industry experience provide hands-on training and placement
+              support.
+            </p>
+            <div class="cta">
+              <a href="#courses" class="btn btn-primary">View Courses</a>
+              <a href="#verify" class="btn btn-secondary">Verify Certificate</a>
+            </div>
+            <div class="stats">
+              <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Students Trained</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Placement Rate</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Industry Partners</div>
+              </div>
+            </div>
           </div>
-          <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
-            <div class="qr-preview" id="qrArea">QR</div>
-            <div>
-              <div class="muted">Signature preview (auto)</div>
-              <img id="sigPreview" src="/mnt/data/unnamed.jpg" alt="signature" style="height:40px;margin-top:8px;border-radius:4px;background:#fff"/>
+          <div class="verification-card">
+            <h3>Certificate Verification</h3>
+            <p
+              style="
+                color: var(--text-muted);
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+              "
+            >
+              Enter your certificate ID to verify
+            </p>
+            <input
+              type="text"
+              id="certIdInput"
+              placeholder="e.g. CC-JAV-2025-0001"
+            />
+            <button
+              class="btn btn-primary"
+              style="width: 100%"
+              onclick="openVerification()"
+            >
+              Verify Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section>
+      <div class="container">
+        <h2>Why Choose Codex Coding Academy</h2>
+        <p>
+          Comprehensive training with industry exposure, expert mentorship, and
+          placement support
+        </p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>Live Interactive Classes</h3>
+            <p>
+              Real-time sessions with doubt clearing and hands-on coding
+              practice
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">👨‍💼</div>
+            <h3>Industry Experts</h3>
+            <p>
+              Learn from professionals with 15+ years of real-world experience
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💼</div>
+            <h3>Placement Support</h3>
+            <p>
+              Resume building, interview prep, and direct company connections
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3>MSME Certified</h3>
+            <p>Government recognized institute with authentic certifications</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🛠️</div>
+            <h3>Hands-On Projects</h3>
+            <p>Build real-world applications to strengthen your portfolio</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Study Materials</h3>
+            <p>Comprehensive notes, recordings, and practice assignments</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+      <div class="container">
+        <h2>Our Courses</h2>
+        <p>
+          Structured programs designed to help you master in-demand technologies
+        </p>
+        <div class="courses-grid">
+          <div class="course-card">
+            <div class="course-header">
+              <h3>Java Full Stack</h3>
+              <p style="opacity: 0.95; font-size: 0.9375rem">
+                Core Java to Spring Boot
+              </p>
+            </div>
+            <div class="course-body">
+              <ul class="course-features">
+                <li>Object-Oriented Programming</li>
+                <li>Collections & Data Structures</li>
+                <li>JDBC & Database Integration</li>
+                <li>Spring Framework & Spring Boot</li>
+                <li>REST API Development</li>
+              </ul>
+              <div class="course-footer">
+                <div>
+                  <div class="course-duration">12 Weeks</div>
+                  <div class="stat-label">Duration</div>
+                </div>
+                <a href="#verify" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div
+              class="course-header"
+              style="background: linear-gradient(135deg, #0891b2, #0e7490)"
+            >
+              <h3>Frontend Development</h3>
+              <p style="opacity: 0.95; font-size: 0.9375rem">
+                HTML, CSS, JavaScript & React
+              </p>
+            </div>
+            <div class="course-body">
+              <ul class="course-features">
+                <li>HTML5 & CSS3 Fundamentals</li>
+                <li>JavaScript ES6+ Features</li>
+                <li>React.js & Component Design</li>
+                <li>State Management (Redux)</li>
+                <li>Responsive Web Design</li>
+              </ul>
+              <div class="course-footer">
+                <div>
+                  <div class="course-duration">10 Weeks</div>
+                  <div class="stat-label">Duration</div>
+                </div>
+                <a href="#verify" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div
+              class="course-header"
+              style="background: linear-gradient(135deg, #059669, #047857)"
+            >
+              <h3>Backend & Database</h3>
+              <p style="opacity: 0.95; font-size: 0.9375rem">
+                Node.js, SQL & NoSQL
+              </p>
+            </div>
+            <div class="course-body">
+              <ul class="course-features">
+                <li>Node.js & Express.js</li>
+                <li>RESTful API Design</li>
+                <li>MySQL & PostgreSQL</li>
+                <li>MongoDB & NoSQL Concepts</li>
+                <li>Authentication & Security</li>
+              </ul>
+              <div class="course-footer">
+                <div>
+                  <div class="course-duration">10 Weeks</div>
+                  <div class="stat-label">Duration</div>
+                </div>
+                <a href="#verify" class="btn btn-primary">Learn More</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Verification Section -->
+    <section id="verify">
+      <div class="container">
+        <h2>Certificate Verification</h2>
+        <p>
+          Verify the authenticity of certificates issued by Codex Coding Academy
+        </p>
+        <div style="max-width: 600px; margin: 0 auto">
+          <div class="verification-card">
+            <label
+              style="display: block; margin-bottom: 0.5rem; font-weight: 600"
+              >Certificate ID</label
+            >
+            <input
+              type="text"
+              id="certIdInput2"
+              placeholder="CC-JAV-2025-0001"
+            />
+            <button
+              class="btn btn-primary"
+              style="width: 100%"
+              onclick="openVerification()"
+            >
+              Verify Certificate
+            </button>
+            <div
+              style="
+                margin-top: 2rem;
+                padding: 1.5rem;
+                background: rgba(37, 99, 235, 0.1);
+                border-radius: 12px;
+                border: 1px solid rgba(37, 99, 235, 0.2);
+              "
+            >
+              <h4 style="margin: 0 0 1rem">How to Verify?</h4>
+              <ol
+                style="
+                  padding-left: 1.25rem;
+                  color: var(--text-secondary);
+                  font-size: 0.9375rem;
+                "
+              >
+                <li style="margin-bottom: 0.5rem">
+                  Enter the Certificate ID from your certificate
+                </li>
+                <li style="margin-bottom: 0.5rem">
+                  Click "Verify Certificate" button
+                </li>
+                <li>View complete certificate details and status</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          Codex Coding Academy is a MSME certified professional training
+          institute dedicated to providing quality coding education
+        </p>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center">
+          <p
+            style="
+              color: var(--text-secondary);
+              font-size: 1rem;
+              line-height: 1.8;
+              margin-bottom: 2rem;
+            "
+          >
+            We offer comprehensive training in Java, Full-Stack Development, and
+            modern web technologies. Our experienced instructors bring
+            real-world industry knowledge to the classroom, ensuring students
+            receive practical, job-ready skills.
+          </p>
+          <div class="verification-card">
+            <h3 style="margin-bottom: 1rem">MSME Registration</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1rem">
+              Government Certified Institute
+            </p>
+            <p
+              style="
+                font-size: 1.125rem;
+                font-weight: 600;
+                color: var(--primary);
+              "
+            >
+              UDYAM-MH-09-0066835
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      © Codex-Coding Academy · MSME UDYAM: UDYAM-MH-09-0066835 · <span class="muted">Built with ❤️</span>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Codex Coding Academy</h4>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.9375rem;
+                margin-bottom: 1.5rem;
+              "
+            >
+              Empowering students with professional coding skills and
+              industry-ready training.
+            </p>
+            <p style="color: var(--text-muted); font-size: 0.875rem">
+              <strong style="color: var(--text-secondary)"
+                >MSME Certified</strong
+              ><br />
+              UDYAM-MH-09-0066835
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#courses">Courses</a></li>
+              <li><a href="#verify">Verify Certificate</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="admin.html">Admin</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Courses</h4>
+            <ul class="footer-links">
+              <li><a href="#courses">Java Full Stack</a></li>
+              <li><a href="#courses">Frontend Development</a></li>
+              <li><a href="#courses">Backend & Database</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.9375rem;
+                line-height: 1.8;
+              "
+            >
+              Pune, Maharashtra<br />
+              India
+            </p>
+            <p style="margin-top: 1rem">
+              <a
+                href="mailto:info@codexcoding.com"
+                style="
+                  color: var(--primary);
+                  text-decoration: none;
+                  font-size: 0.9375rem;
+                "
+                >info@codexcoding.com</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Codex Coding Academy. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
-  </div>
 
-<script>
-  // open verification page
-  function openVerification(id){
-    if(!id) return alert('Enter certificate ID');
-    // verify page mapping pattern: filename = ID + ".html"
-    const url = `${location.origin}${location.pathname}${id}.html`;
-    window.open(url, '_blank');
-  }
-  document.getElementById('verifyBtn').addEventListener('click', ()=>{
-    openVerification(document.getElementById('certIdInput').value.trim() || document.getElementById('certIdInput2').value.trim());
-  });
-  document.getElementById('verifyBtn2').addEventListener('click', ()=>{
-    openVerification(document.getElementById('certIdInput2').value.trim());
-  });
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+        } else {
+          header.style.boxShadow = "none";
+        }
+      });
 
-  // download sample PDF fallback to the cert pdf you uploaded if present
-  function downloadSample(){
-    // if you uploaded a PDF to repo root with this name, link will work
-    const pdfPath = 'codex-coding-academy _ Udyam Registration Certificate.pdf';
-    // open in new tab (or download)
-    window.open(pdfPath, '_blank');
-  }
+      // Certificate verification
+      function openVerification() {
+        const id =
+          document.getElementById("certIdInput").value.trim() ||
+          document.getElementById("certIdInput2").value.trim();
 
-  // client-side JSON + QR (uses Google Chart API for QR)
-  function generateCert(){
-    const student = document.getElementById('studentName').value || 'Datta Karhale';
-    const course = document.getElementById('courseName').value || 'Java';
-    const id = document.getElementById('certId').value || `CC-JAV-2025-0001`;
-    const date = document.getElementById('issueDate').value || new Date().toLocaleDateString();
-    const json = { certificate_id: id, student_name: student, course: course, issue_date: date, academy: "Codex-Coding Academy", msme: "UDYAM-MH-09-0066835", status: "VERIFIED" };
-    window.currentCertJSON = json;
-    // show QR
-    const vUrl = `${location.origin}${location.pathname}${id}.html`;
-    const qrUrl = `https://chart.googleapis.com/chart?cht=qr&chs=240x240&chl=${encodeURIComponent(vUrl)}`;
-    document.getElementById('qrArea').innerHTML = '<img src="'+qrUrl+'" style="width:100%;height:100%;border-radius:8px"/>';
-    alert('Certificate JSON created — click Download JSON to save locally. Then upload the JSON + certificate image to your repo /certificates/ folder to serve verification.');
-  }
+        if (!id) {
+          alert("Please enter a Certificate ID");
+          return;
+        }
 
-  function downloadJSON(){
-    if(!window.currentCertJSON){ alert('Generate certificate first'); return; }
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(window.currentCertJSON, null, 2));
-    const a = document.createElement('a'); a.href = dataStr; a.download = (window.currentCertJSON.certificate_id || 'certificate') + '.json'; document.body.appendChild(a); a.click(); a.remove();
-  }
+        const url = `${location.origin}${location.pathname.replace(
+          "index.html",
+          ""
+        )}${id}.html`;
+        window.open(url, "_blank");
+      }
 
-  // prefill admin inputs for convenience
-  document.getElementById('studentName').value = 'Datta Karhale';
-</script>
-</body>
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

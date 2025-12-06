@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>
+      Certificate Verification - CC-JAV-2025-0001 | Codex Coding Academy
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2563eb;
+        --success: #10b981;
+        --bg-dark: #0f1419;
+        --bg-card: #1a1f2e;
+        --text-primary: #ffffff;
+        --text-secondary: #d1d5db;
+        --text-muted: #9ca3af;
+        --border: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+        color: var(--text-primary);
+        padding: 2rem;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        max-width: 800px;
+        width: 100%;
+      }
+
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 3rem;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--primary), #0891b2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 24px;
+        margin: 0 auto 1.5rem;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0 0 0.5rem;
+      }
+
+      .badge {
+        display: inline-block;
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: var(--success);
+        padding: 0.75rem 1.5rem;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        margin-top: 1rem;
+      }
+
+      .details {
+        display: grid;
+        gap: 1.25rem;
+        margin-top: 2rem;
+      }
+
+      .detail-row {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 1.5rem;
+        padding: 1.25rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        align-items: center;
+      }
+
+      .label {
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-align: left;
+      }
+
+      .value {
+        color: var(--text-primary);
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .status {
+        color: var(--success);
+        font-weight: 700;
+        font-size: 1.125rem;
+      }
+
+      .footer-text {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        color: var(--text-muted);
+        font-size: 0.9375rem;
+        text-align: center;
+        line-height: 1.8;
+      }
+
+      .back-btn {
+        display: inline-block;
+        padding: 0.875rem 1.75rem;
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.2s;
+        margin-top: 1.5rem;
+      }
+
+      .back-btn:hover {
+        background: #1e40af;
+        transform: translateY(-1px);
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+        .card {
+          padding: 2rem 1.5rem;
+        }
+        .header h1 {
+          font-size: 1.5rem;
+        }
+        .detail-row {
+          grid-template-columns: 1fr;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="header">
+          <div class="logo">CC</div>
+          <h1>Certificate Verification</h1>
+          <p style="color: var(--text-secondary)">Codex Coding Academy</p>
+          <div class="badge">✓ Verified & Authentic</div>
+        </div>
+
+        <div class="details">
+          <div class="detail-row">
+            <div class="label">Certificate ID</div>
+            <div class="value">CC-JAV-2025-0001</div>
+          </div>
+
+          <div class="detail-row">
+            <div class="label">Student Name</div>
+            <div class="value">Datta Karhale</div>
+          </div>
+
+          <div class="detail-row">
+            <div class="label">Course</div>
+            <div class="value">Java Full Stack Development</div>
+          </div>
+
+          <div class="detail-row">
+            <div class="label">Issue Date</div>
+            <div class="value">22-11-2025</div>
+          </div>
+
+          <div class="detail-row">
+            <div class="label">MSME Registration</div>
+            <div class="value">UDYAM-MH-09-0066835</div>
+          </div>
+
+          <div
+            class="detail-row"
+            style="
+              border-color: rgba(16, 185, 129, 0.3);
+              background: rgba(16, 185, 129, 0.05);
+            "
+          >
+            <div class="label">Status</div>
+            <div class="status">VERIFIED</div>
+          </div>
+        </div>
+
+        <div class="footer-text">
+          <p style="margin-bottom: 1rem">
+            This certificate has been issued by
+            <strong>Codex Coding Academy</strong>, a government-recognized MSME
+            registered institute.
+          </p>
+          <p style="margin-bottom: 1rem">
+            The certificate confirms successful completion of the mentioned
+            course.
+          </p>
+          <div>
+            <a href="index.html" class="back-btn">← Back to Homepage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
